@@ -6,7 +6,7 @@ from os import path
 
 # ../audio/samples/original contains folders labeled with the names of
 # various artists.
-samples_dir = "../audio/samples/original/"
+samples_dir = "../audio/samples/vocals/"
 edited_dir = "../audio/samples/edited/"
 
 for name in os.listdir(samples_dir):
@@ -26,7 +26,7 @@ for name in os.listdir(samples_dir):
 
         steps = np.linspace(-max_shift, max_shift, num_intervals)
 
-        output_dir = edited_dir + name
+        output_dir = os.path.join(edited_dir, name[:-4], sample_name)
         if not path.exists(output_dir):
             os.makedirs(output_dir)
 
